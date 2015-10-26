@@ -33,12 +33,12 @@ RUN set -x \
     && chown -R daemon:daemon  "${JIRA_INSTALL}/temp" \
     && chown -R daemon:daemon  "${JIRA_INSTALL}/work" \
     && sed --in-place          "s/java version/openjdk version/g" "${JIRA_INSTALL}/bin/check-java.sh" \
-    && echo -e                 "\njira.home=$JIRA_HOME" >> "${JIRA_INSTALL}/atlassian-jira/WEB-INF/classes/jira-application.properties"
-    && sed                     's/port=\"8080\"/port=\"\"${JIRA_PORT}\"\"/' "${JIRA_INSTALL}/conf/server.xml"
-    && sed                     '57 a scheme=\"${JIRA_SCHEME}\"' "${JIRA_INSTALL}/conf/server.xml"
-    && sed                     '57 a proxyName=\"${JIRA_URL}\"' "${JIRA_INSTALL}/conf/server.xml"
-    && sed                     '57 a proxyPort=\"${JIRA_PROXYP}\"' "${JIRA_INSTALL}/conf/server.xml"
-    && sed                     '57 a secure=\"${JIRA_SECURE}\"' "${JIRA_INSTALL}/conf/server.xml"
+    && echo -e                 "\njira.home=$JIRA_HOME" >> "${JIRA_INSTALL}/atlassian-jira/WEB-INF/classes/jira-application.properties" \
+    && sed  -e                 's/port=\"8080\"/port=\"\"${JIRA_PORT}\"\"/' "${JIRA_INSTALL}/conf/server.xml" \
+    && sed  -e                 '57 a scheme=\"${JIRA_SCHEME}\"' "${JIRA_INSTALL}/conf/server.xml" \
+    && sed  -e                 '57 a proxyName=\"${JIRA_URL}\"' "${JIRA_INSTALL}/conf/server.xml" \
+    && sed  -e                 '57 a proxyPort=\"${JIRA_PROXYP}\"' "${JIRA_INSTALL}/conf/server.xml" \
+    && sed  -e                 '57 a secure=\"${JIRA_SECURE}\"' "${JIRA_INSTALL}/conf/server.xml" \
     
 
 # Use the default unprivileged account. This could be considered bad practice
