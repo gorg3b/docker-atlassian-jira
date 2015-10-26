@@ -38,7 +38,7 @@ RUN set -x \
     && sed --in-place          "57 a scheme=\""${JIRA_SCHEME}"\"" "${JIRA_INSTALL}/conf/server.xml" \
     && sed --in-place           "57 a proxyName=\""${JIRA_URL}"\"" "${JIRA_INSTALL}/conf/server.xml" \
     && sed --in-place          "57 a proxyPort=\""${JIRA_PROXYP}"\"" "${JIRA_INSTALL}/conf/server.xml" \
-    && sed --in-place          "57 a secure=\""${JIRA_SECURE}"\"" "${JIRA_INSTALL}/conf/server.xml" \
+    && sed --in-place          "57 a secure=\""${JIRA_SECURE}"\"" "${JIRA_INSTALL}/conf/server.xml" 
     
 
 # Use the default unprivileged account. This could be considered bad practice
