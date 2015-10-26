@@ -39,7 +39,7 @@ RUN set -x \
     && sed --in-place          "57 a proxyName=\""${JIRA_URL}"\"" "${JIRA_INSTALL}/conf/server.xml" \
     && sed --in-place          "57 a proxyPort=\""${JIRA_PROXYP}"\"" "${JIRA_INSTALL}/conf/server.xml" \
     && sed --in-place          "57 a secure=\""${JIRA_SECURE}"\"" "${JIRA_INSTALL}/conf/server.xml" \
-    && sed --in-place          "57 a redirectPort=\"8443\"" "${JIRA_INSTALL}/conf/server.xml"
+    && sed --in-place          "57 a redirectPort=\"8081\"" "${JIRA_INSTALL}/conf/server.xml"
     
 
 # Use the default unprivileged account. This could be considered bad practice
@@ -49,6 +49,7 @@ USER daemon:daemon
 
 # Expose default HTTP connector port.
 EXPOSE 8080
+EXPOSE 8081
 
 # Set volume mount points for installation and home directory. Changes to the
 # home directory needs to be persisted as well as parts of the installation
