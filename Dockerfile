@@ -37,7 +37,7 @@ RUN set -x \
     
 # Change the Sever configuration according to the ENV
 
-#    && sed                     's/port=\"8080\"/port=\"\"${JIRA_PORT}\"\"/' "${JIRA_INSTALL}/conf/server.xml"
+    && sed                     's/port=\"8080\"/port=\"\"${JIRA_PORT}\"\"/' "${JIRA_INSTALL}/conf/server.xml"
     && sed                     '57 a scheme=\"${JIRA_SCHEME}\"' "${JIRA_INSTALL}/conf/server.xml"
     && sed                     '57 a proxyName=\"${JIRA_URL}\"' "${JIRA_INSTALL}/conf/server.xml"
     && sed                     '57 a proxyPort=\"${JIRA_PROXYP}\"' "${JIRA_INSTALL}/conf/server.xml"
@@ -50,7 +50,7 @@ RUN set -x \
 USER daemon:daemon
 
 # Expose default HTTP connector port.
-EXPOSE ${JIRA_PORT}
+EXPOSE 8080
 
 # Set volume mount points for installation and home directory. Changes to the
 # home directory needs to be persisted as well as parts of the installation
