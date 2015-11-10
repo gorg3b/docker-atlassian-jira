@@ -59,5 +59,9 @@ VOLUME ["/var/atlassian/jira"]
 # Set the default working directory as the installation directory.
 WORKDIR ${JIRA_HOME}
 
+# Remove Jira Lockfile
+
+run rm -f ${JIRA_HOME}/.jira-home.lock
+
 # Run Atlassian JIRA as a foreground process by default.
 CMD ["/opt/atlassian/jira/bin/start-jira.sh", "-fg"]
