@@ -6,7 +6,7 @@ ENV JIRA_INSTALL  /opt/atlassian/jira
 ENV JIRA_VERSION  7.0.0
 ENV JIRA_PORT     8080
 ENV JIRA_SCHEME   https
-ENV JIRA_URL      dev.stephanbartl.at
+# ENV JIRA_URL      dev.stephanbartl.at
 ENV JIRA_PROXYP   443
 ENV JIRA_SECURE   true
 
