@@ -39,7 +39,7 @@ RUN set -x \
     #&& sed --in-place          "57 a proxyName=\""${JIRA_URL}"\"" "${JIRA_INSTALL}/conf/server.xml" \
     && sed --in-place          "57 a proxyPort=\""${JIRA_PROXYP}"\"" "${JIRA_INSTALL}/conf/server.xml" \
     && sed --in-place          "57 a secure=\""${JIRA_SECURE}"\"" "${JIRA_INSTALL}/conf/server.xml" \
-    && sed --in-place          "2  a \"sed --in-place "57 a proxyName=""${JIRA_URL}""" "${JIRA_INSTALL}/conf/server.xml"\" "${JIRA_INSTALL}/bin/start_jira.sh"
+    && sed --in-place          "2  a \"sed --in-place \"57 a proxyName=""${JIRA_URL}""\" "${JIRA_INSTALL}/conf/server.xml"\" "${JIRA_INSTALL}/bin/start_jira.sh"
 
     
 
