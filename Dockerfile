@@ -36,9 +36,10 @@ RUN set -x \
     && echo -e                 "\njira.home=$JIRA_HOME" >> "${JIRA_INSTALL}/atlassian-jira/WEB-INF/classes/jira-application.properties" \
     && sed --in-place          "s/port=\"8080\"/port=\""${JIRA_PORT}"\"/" "${JIRA_INSTALL}/conf/server.xml" \
     && sed --in-place          "57 a scheme=\""${JIRA_SCHEME}"\"" "${JIRA_INSTALL}/conf/server.xml" \
-    && sed --in-place          "57 a proxyName=\""${JIRA_URL}"\"" "${JIRA_INSTALL}/conf/server.xml" \
+    #&& sed --in-place          "57 a proxyName=\""${JIRA_URL}"\"" "${JIRA_INSTALL}/conf/server.xml" \
     && sed --in-place          "57 a proxyPort=\""${JIRA_PROXYP}"\"" "${JIRA_INSTALL}/conf/server.xml" \
-    && sed --in-place          "57 a secure=\""${JIRA_SECURE}"\"" "${JIRA_INSTALL}/conf/server.xml" 
+    && sed --in-place          "57 a secure=\""${JIRA_SECURE}"\"" "${JIRA_INSTALL}/conf/server.xml" \
+    && sed --in-place          "2  a \"sed --in-place "57 a proxyName=\""${JIRA_URL}"\"" "${JIRA_INSTALL}/conf/server.xml"\"" ${JIRA_INSTALL}/bin/start_jira.sh""
 
     
 
@@ -59,9 +60,5 @@ VOLUME ["/var/atlassian/jira"]
 # Set the default working directory as the installation directory.
 WORKDIR ${JIRA_HOME}
 
-# Remove Jira Lockfile
-
-run rm -f ${JIRA_HOME}/.jira-home.lock
-
-# Run Atlassian JIRA as a foreground process by default.
+# Set JIRA URL and Run Atlassian JIRA as a foreground process by default.
 CMD ["/opt/atlassian/jira/bin/start-jira.sh", "-fg"]
