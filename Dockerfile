@@ -1,4 +1,4 @@
-FROM java:8
+FROM java:latest
 
 # Configuration variables.
 ENV JIRA_HOME     /var/atlassian/jira
