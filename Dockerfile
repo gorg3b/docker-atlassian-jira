@@ -3,7 +3,7 @@ FROM java:8
 # Configuration variables.
 ENV JIRA_HOME     /var/atlassian/jira
 ENV JIRA_INSTALL  /opt/atlassian/jira
-ENV JIRA_VERSION  7.0.6
+ENV JIRA_VERSION  7.0.7
 ENV JIRA_PORT     8080
 ENV JIRA_SCHEME   https
 ENV JIRA_PROXYP   443
