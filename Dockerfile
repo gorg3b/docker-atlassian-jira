@@ -36,6 +36,7 @@ RUN set -x \
     && sed --in-place                       "57 a scheme=\""${JIRA_SCHEME}"\"" "${JIRA_INSTALL}/conf/server.xml" \
     && sed --in-place                       "57 a proxyPort=\""${JIRA_PROXYP}"\"" "${JIRA_INSTALL}/conf/server.xml" \
     && sed --in-place                       "57 a secure=\""${JIRA_SECURE}"\"" "${JIRA_INSTALL}/conf/server.xml" \
+    && touch -d "@0"                        "/opt/atlassian/jira/conf/server.xml" \
     && echo -e                              "\njira.home=$JIRA_HOME" >> "${JIRA_INSTALL}/atlassian-jira/WEB-INF/classes/jira-application.properties"
 
 
