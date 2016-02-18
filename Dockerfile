@@ -40,7 +40,7 @@ RUN set -x \
     && echo -e                              "\njira.home=$JIRA_HOME" >> "${JIRA_INSTALL}/atlassian-jira/WEB-INF/classes/jira-application.properties"
 
 
-# Use the default unprivileged account. This could be considered bad practice
+# Use the default unprivileged account  This could be considered bad practice
 # on systems where multiple processes end up being executed by 'daemon' but
 # here we only ever run one process anyway.
 USER 1:1
