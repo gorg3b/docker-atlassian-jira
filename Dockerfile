@@ -30,7 +30,6 @@ RUN set -x \
     && chown -R 1:1                         "${JIRA_INSTALL}/logs" \
     && chown -R 1:1                         "${JIRA_INSTALL}/temp" \
     && chown -R 1:1                         "${JIRA_INSTALL}/work" \
-    && chown -R 1:1                         "${JIRA_INSTALL}/atlassian-jira" \
     && sed --in-place                       "s/java version/openjdk version/g" "${JIRA_INSTALL}/bin/check-java.sh" \
     && echo -e                              "\njira.home=$JIRA_HOME" >> "${JIRA_INSTALL}/atlassian-jira/WEB-INF/classes/jira-application.properties" \
     && sed --in-place                       "s/port=\"8080\"/port=\""${JIRA_PORT}"\"/" "${JIRA_INSTALL}/conf/server.xml" \
