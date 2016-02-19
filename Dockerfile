@@ -36,8 +36,8 @@ RUN set -x \
     && sed --in-place                       "57 a scheme=\""${JIRA_SCHEME}"\"" "${JIRA_INSTALL}/conf/server.xml" \
     && sed --in-place                       "57 a proxyPort=\""${JIRA_PROXYP}"\"" "${JIRA_INSTALL}/conf/server.xml" \
     && sed --in-place                       "57 a secure=\""${JIRA_SECURE}"\"" "${JIRA_INSTALL}/conf/server.xml" \
-    && sed --in-place                       "s/JVM_MINIMUM_MEMORY=\"384m\"/JVM_MINIMUM_MEMORY=\"512m\"/g" "${JIRA_INSTALL}/bin/setenv.sh" \
-    && sed --in-place                       "s/JVM_MAXIMUM_MEMORY=\"768m\"/JVM_MAXIMUM_MEMORY=\"2048m\"/g" "${JIRA_INSTALL}/bin/setenv.sh" \
+    && sed --in-place                       "s/JVM_MINIMUM_MEMORY=\"384m\"/JVM_MINIMUM_MEMORY=\"1024m\"/g" "${JIRA_INSTALL}/bin/setenv.sh" \
+    && sed --in-place                       "s/JVM_MAXIMUM_MEMORY=\"768m\"/JVM_MAXIMUM_MEMORY=\"3072m\"/g" "${JIRA_INSTALL}/bin/setenv.sh" \
     && echo -e                              "\njira.home=$JIRA_HOME" >> "${JIRA_INSTALL}/atlassian-jira/WEB-INF/classes/jira-application.properties"
 
 
